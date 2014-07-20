@@ -18,6 +18,9 @@ public class BusPathController {
     public static void main(String[] args) {
         // TODO code application logic here
         downloader d= new downloader();
+        //MD5Checksum m = new MD5Checksum();
+        //System.out.println(m.getMD5(("/Users/Zhaowei/Desktop/BusPath/Route/RouteList.json")));
+        //System.out.println(m.getMD5(("/Users/Zhaowei/Desktop/routelist.json")));
     }
     
 }
