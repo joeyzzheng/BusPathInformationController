@@ -17,10 +17,13 @@ public class BusPathController {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        downloader d= new downloader();
+        //downloader d= new downloader();
+        //d.stopRouteListDownload();
         //MD5Checksum m = new MD5Checksum();
         //System.out.println(m.getMD5(("/Users/Zhaowei/Desktop/BusPath/Route/RouteList.json")));
-        //System.out.println(m.getMD5(("/Users/Zhaowei/Desktop/routelist.json")));
+        //System.out.println(m.getMD5(("/Users/Zhaowei/Desktop/BusPath/Stop/StopList.json")));
+        JSONFileParser j = new JSONFileParser();
+        j.generateAllRoutes();
     }
     
 }

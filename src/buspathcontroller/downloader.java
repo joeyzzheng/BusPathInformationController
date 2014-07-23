@@ -20,12 +20,8 @@ import java.net.URL;
  */
 public class downloader {
     
-    public downloader(){
-        stopRouteDownload();
-    }
-    
     //download the latest stop and route list so that we can update bus path information later.
-    private void stopRouteDownload(){
+    public void stopRouteListDownload(){
         try{
             URL routeList = new URL("http://api.ebongo.org/routelist?format=json&api_key=xApBvduHbU8SRYvc74hJa7jO70Xx4XNO");
             URL stopList = new URL("http://api.ebongo.org/stoplist?format=json&api_key=xApBvduHbU8SRYvc74hJa7jO70Xx4XNO");
