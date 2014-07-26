@@ -72,18 +72,29 @@ public class JSONFileParser {
             }
             br.close();
             reader.close();
-            /*
+            
             Iterator<String> it = routeList.iterator();
             while (it.hasNext()){
                 String routeName = it.next();
                 PrintWriter writer=new PrintWriter("/Users/Zhaowei/Desktop/BusPath/routeInfo/stops/"+routeName+".txt");
-                Object obj = parser.parse(new FileReader("/Users/Zhaowei/Desktop/BusPath/RawJSON/"+routeName+".json"));
+                Object obj = parser.parse(new FileReader("/Users/Zhaowei/Desktop/BusPath/RawJSON/route/"+routeName+".json"));
                 JSONObject jsonObject = (JSONObject) obj;
-            }*/
-            PrintWriter writer=new PrintWriter("/Users/Zhaowei/Desktop/BusPath/routeInfo/stops/7thave.txt");
-            Object obj = parser.parse(new FileReader("/Users/Zhaowei/Desktop/BusPath/RawJSON/7thave.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            JSONArray routes = (JSONArray) jsonObject.get("stops");
+                JSONObject route = (JSONObject) jsonObject.get("route");
+                JSONArray directions = (JSONArray) route.get("directions");
+                for (int i = 0; i<directions.size();i++){
+                    JSONObject direction = (JSONObject) directions.get(i);
+                    writer.println(direction.get("direction"));
+                    JSONArray stops = (JSONArray) direction.get("stops");
+                    Iterator iter = stops.iterator();
+                    while (iter.hasNext()){
+                        JSONObject stop = (JSONObject) iter.next();
+                        writer.println(stop.get("stopnumber")+";"+stop.get("stoptitle")+";"+stop.get("stoplat")+";"+stop.get("stoplng"));
+                    }
+                }
+                writer.close();
+            }
+            
+            
         }
         catch (Exception e){
             System.out.println(e);
